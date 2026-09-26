@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>[PRUEBAS] Agenda AMUC - Solicitudes WhatsApp</title>
+<link rel="stylesheet" href="../css/styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="test-environment-banner">🧪 AMBIENTE DE PRUEBAS — NO UTILIZAR PARA RESERVAS REALES</div>
+<div class="app-layout">
+<aside class="sidebar">
+<div class="sidebar-brand"><img src="../assets/logo-amuc.jpg" class="sidebar-logo" alt="Logo AMUC"><div><strong>Agenda AMUC</strong><span id="userRole">Usuario</span></div></div>
+<nav class="nav-menu"><a href="dashboard.html">Inicio</a><a href="reservas.html">Reservas</a><a href="clientes.html">Clientes</a><a href="pagos.html">Cobros</a><a href="solicitudes-whatsapp.html" class="active">Solicitudes WhatsApp</a></nav>
+<button id="logoutBtn" class="btn btn-ghost">Cerrar sesión</button>
+</aside>
+<main class="content">
+<header class="topbar"><div><h1>Solicitudes WhatsApp</h1><p>Solicitudes generadas por el bot y pendientes de gestión.</p></div><button id="refreshBtn" class="btn btn-secondary">Actualizar</button></header>
+<section class="stats-grid whatsapp-summary">
+<article class="stat-card"><span>Pendientes</span><strong id="waPendientes">—</strong><small>Esperando operador</small></article>
+<article class="stat-card"><span>En revisión</span><strong id="waRevision">—</strong><small>Tomadas por operador</small></article>
+<article class="stat-card"><span>Convertidas</span><strong id="waConvertidas">—</strong><small>Reserva creada</small></article>
+<article class="stat-card"><span>Descartadas</span><strong id="waDescartadas">—</strong><small>Cerradas</small></article>
+</section>
+<section class="panel">
+<div class="wa-filter-row"><label>Estado<select id="estadoFiltro"><option value="TODOS">Todos</option><option value="PENDIENTE" selected>Pendientes</option><option value="EN_REVISION">En revisión</option><option value="CONVERTIDA_EN_RESERVA">Convertidas</option><option value="DESCARTADA">Descartadas</option></select></label><label>Buscar<input id="waSearch" type="search" placeholder="Nombre, DNI o teléfono"></label></div>
+<div id="solicitudesTable" class="table-wrap"><p class="muted">Cargando...</p></div>
+</section>
+</main></div>
+<div id="conversationModal" class="modal-overlay hidden"><div class="modal-card"><div class="modal-header"><div><h2>Conversación WhatsApp</h2><p id="conversationSubtitle" class="muted"></p></div><button id="closeConversationBtn" class="modal-close">×</button></div><div id="conversationMessages" class="wa-messages"></div></div></div>
+<script src="../js/supabase.js"></script><script src="../js/session.js"></script><script src="../js/solicitudes-whatsapp.js"></script>
+</body></html>

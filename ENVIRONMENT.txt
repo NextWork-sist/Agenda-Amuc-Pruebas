@@ -1,0 +1,15 @@
+AGENDA AMUC - AMBIENTE DE PRUEBAS
+
+Este paquete está configurado EXCLUSIVAMENTE para:
+https://jdfjttbajfjwfhiwjgrp.supabase.co
+
+NO utiliza la base de Producción.
+
+Regla de trabajo:
+1. Toda mejora se implementa primero aquí.
+2. Se prueba con datos ficticios.
+3. Una vez aprobada, se prepara un paquete específico para Producción.
+4. Nunca copiar js/supabase.js de Pruebas sobre Producción.
+
+Versión base: Agenda-Amuc-v11
+Entorno: PRUEBAS

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[PRUEBAS] Agenda AMUC</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="login-body">
+  <div class="test-environment-banner">🧪 AMBIENTE DE PRUEBAS — NO UTILIZAR PARA RESERVAS REALES</div>
+  <main class="login-shell">
+    <section class="login-card">
+      <div class="brand-block">
+        <img src="assets/logo-amuc.jpg" alt="Logo AMUC" class="login-logo">
+        <div>
+          <h1>Agenda AMUC</h1>
+          <p>Gestión de reservas del salón de fiestas</p>
+        </div>
+      </div>
+      <form id="loginForm" class="login-form">
+        <label>Correo electrónico<input type="email" id="email" required></label>
+        <label>Contraseña<input type="password" id="password" required></label>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+        <p id="loginMessage" class="form-message"></p>
+      </form>
+    </section>
+  </main>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

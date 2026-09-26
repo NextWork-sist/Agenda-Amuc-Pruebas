@@ -1,0 +1,137 @@
+*{box-sizing:border-box}:root{--bg:#f3f5f7;--surface:#fff;--text:#1d2733;--muted:#6d7783;--primary:#173b5f;--primary2:#255f8f;--border:#dfe4e8;--soft:#edf2f6;--danger:#a52828;--success:#1d7c4f}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}.login-body{min-height:100vh;background:linear-gradient(135deg,#163957,#285f88);display:grid;place-items:center;padding:24px}.login-shell{width:100%;max-width:460px}.login-card{background:#fff;border-radius:20px;padding:34px;box-shadow:0 22px 60px rgba(0,0,0,.22)}.brand-block,.sidebar-brand{display:flex;align-items:center;gap:14px}.brand-block h1{margin:0 0 4px}.brand-block p{margin:0;color:var(--muted)}.brand-mark{width:68px;height:68px;border-radius:18px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800}.brand-mark.small{width:44px;height:44px;border-radius:12px;font-size:13px}.login-form{display:grid;gap:18px;margin-top:30px}label{display:grid;gap:7px;font-weight:600;font-size:14px}input,select,textarea{width:100%;border:1px solid var(--border);border-radius:10px;padding:11px 12px;background:#fff}.btn{border:0;border-radius:10px;padding:11px 16px;font-weight:700;cursor:pointer;display:inline-flex;justify-content:center;align-items:center}.btn-primary{background:var(--primary);color:#fff}.btn-secondary{background:var(--soft);color:var(--primary)}.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28)}.form-message{min-height:18px;margin:0;font-size:13px}.error{color:var(--danger)}.success{color:var(--success)}.app-layout{min-height:100vh;display:grid;grid-template-columns:250px 1fr}.sidebar{background:#142f49;color:#fff;padding:24px 18px;display:flex;flex-direction:column;gap:28px;position:sticky;top:0;height:100vh}.sidebar-brand strong,.sidebar-brand span{display:block}.sidebar-brand span{font-size:12px;opacity:.72;margin-top:4px}.nav-menu{display:grid;gap:7px}.nav-menu a{padding:11px 12px;border-radius:9px;color:#dce7f0}.nav-menu a.active,.nav-menu a:hover{background:#234b6b;color:#fff}.sidebar .btn{margin-top:auto}.content{padding:30px;min-width:0}.topbar{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:24px}.topbar h1{margin:0;font-size:30px}.topbar p{margin:6px 0 0;color:var(--muted)}.stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:20px}.stat-card,.panel{background:var(--surface);border:1px solid var(--border);border-radius:16px}.stat-card{padding:20px}.stat-card span,.stat-card small{display:block;color:var(--muted)}.stat-card strong{display:block;font-size:27px;margin:9px 0}.panel{padding:20px;margin-bottom:18px}.panel-header{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:16px}.panel-header h2{margin:0}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:650px}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--border);font-size:14px}th{color:var(--muted);font-size:12px;text-transform:uppercase}.badge{display:inline-block;padding:5px 8px;border-radius:999px;background:var(--soft);font-size:11px;font-weight:800}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.form-grid .full{grid-column:1/-1}.form-actions{display:flex;align-items:center;gap:14px}.hidden{display:none}.muted{color:var(--muted)}.checkbox-line{display:flex!important;align-items:center;gap:10px;font-weight:700;padding-top:24px}.checkbox-line input{width:auto}.billing-box{background:#f8fafb;border:1px solid var(--border);border-radius:14px;padding:18px;margin:14px 0}.search-row{display:grid;grid-template-columns:1fr auto auto;gap:10px;margin-bottom:14px}.client-results{display:grid;gap:8px;margin-bottom:16px}.client-result{text-align:left;border:1px solid var(--border);background:#fff;border-radius:12px;padding:13px;cursor:pointer}.client-result strong,.client-result span{display:block}.client-result span{color:var(--muted);font-size:13px;margin-top:4px}.client-card{border:1px solid #b9cbd9;background:#fbfdff;border-radius:14px;padding:18px;margin:16px 0}.client-card-head{display:flex;justify-content:space-between;gap:12px}.client-card-head h3{margin:4px 0 0}.eyebrow{font-size:11px;color:var(--muted);font-weight:800}.badge.large{font-size:12px;padding:7px 10px}.client-data-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}.client-data-grid div{background:#fff;border:1px solid var(--border);padding:11px;border-radius:10px}.client-data-grid span,.client-data-grid strong{display:block}.client-data-grid span{font-size:11px;color:var(--muted);margin-bottom:4px}.step-title{display:flex;gap:12px;align-items:center;margin:4px 0 16px}.step-title h2{margin:0}.step-title p{margin:4px 0 0;color:var(--muted)}.step-number{width:34px;height:34px;border-radius:50%;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800}.price-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:#173b5f;color:#fff;border-radius:14px;padding:16px}.price-summary span,.price-summary strong{display:block}.price-summary span{font-size:12px;opacity:.75}.price-summary strong{font-size:18px;margin-top:5px}@media(max-width:760px){.app-layout{display:block}.sidebar{height:auto;position:relative}.content{padding:18px}.stats-grid{grid-template-columns:1fr 1fr}.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:auto}.search-row{grid-template-columns:1fr}.client-data-grid,.price-summary{grid-template-columns:1fr 1fr}}
+.sidebar-logo{width:48px;height:48px;object-fit:contain;border-radius:50%;background:#fff}.header-logo{width:78px;height:78px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid var(--border)}.login-logo{width:82px;height:82px;object-fit:contain;border-radius:50%}.dashboard-header{align-items:center}.calendar-panel{padding:0;overflow:hidden}.calendar-toolbar{display:grid;grid-template-columns:52px 1fr 52px;align-items:center;gap:12px;padding:18px 20px;border-bottom:1px solid var(--border)}.calendar-title-wrap{text-align:center}.calendar-title-wrap h2{margin:0;font-size:25px}.calendar-title-wrap p{margin:4px 0 0;color:var(--muted);font-size:13px}.calendar-nav{width:42px;height:42px;border:1px solid var(--border);background:#fff;border-radius:10px;font-size:30px;line-height:1;cursor:pointer;color:var(--primary)}.calendar-nav:hover{background:var(--soft)}.calendar-weekdays{display:grid;grid-template-columns:repeat(7,1fr);background:#26394d;color:#fff;font-size:12px;font-weight:800;text-align:center}.calendar-weekdays div{padding:9px 4px;border-right:1px solid rgba(255,255,255,.18)}.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);background:#cfd6dd;gap:1px}.calendar-cell{min-height:118px;background:#fff;padding:7px;position:relative;overflow:hidden}.calendar-cell.outside-month{background:#e4e9ee;color:#8e99a4}.calendar-day-number{font-size:13px;font-weight:800;margin-bottom:6px}.calendar-events{display:grid;gap:4px}.calendar-event{border-radius:6px;padding:5px 6px;font-size:11px;font-weight:700;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:#e9eef3;color:#173b5f;border-left:3px solid #6f879b}.calendar-event.confirmed{background:#e7f3eb;color:#17613b;border-left-color:#2b8c5a}.calendar-event.pre{background:#fff4dc;color:#7a5b14;border-left-color:#c99a27}@media(max-width:900px){.calendar-cell{min-height:95px}.calendar-event{font-size:10px}}@media(max-width:650px){.header-logo{width:58px;height:58px}.calendar-weekdays{font-size:10px}.calendar-cell{min-height:78px;padding:5px}.calendar-event{font-size:9px;padding:4px}.calendar-title-wrap h2{font-size:20px}}
+
+/* V4 - Cobros, alertas y acciones administrativas */
+.field-help{display:block;margin-top:5px;color:var(--muted);font-size:12px;font-weight:400}
+.payment-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;background:#f7f9fb;border:1px solid var(--border);border-radius:12px;padding:14px}
+.payment-summary div{padding:8px}.payment-summary span,.payment-summary strong{display:block}.payment-summary span{font-size:11px;color:var(--muted);margin-bottom:3px}
+.icon-btn{border:0;border-radius:8px;padding:7px 9px;cursor:pointer;background:var(--soft)}
+.icon-btn.danger{background:#fdeaea;color:#9d2424}.icon-btn.danger:hover{background:#f8d2d2}
+.alert-panel{border-color:#e5b858;background:#fffaf0}.alert-panel h2{color:#77540c}
+.payment-alert-item{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid #eedfb9}.payment-alert-item:last-child{border-bottom:0}.payment-alert-item strong,.payment-alert-item span{display:block}.payment-alert-item span{margin-top:4px;color:#705f3b;font-size:13px}
+.btn-whatsapp{background:#edf8f1;color:#17633a;border:1px solid #b9dcc7;white-space:nowrap}
+@media(max-width:760px){.payment-summary{grid-template-columns:1fr 1fr}.payment-alert-item{align-items:flex-start;flex-direction:column}}
+
+/* V5 - Control de disponibilidad entre reservas */
+.availability-notice{
+  border-radius:12px;padding:13px 15px;border:1px solid var(--border);
+  font-size:13px;line-height:1.45;
+}
+.availability-notice.neutral{background:#f7f9fb;color:var(--muted)}
+.availability-notice.available{background:#eaf6ef;border-color:#9ccdb0;color:#17613b}
+.availability-notice.warning{background:#fff5df;border-color:#e2c36f;color:#755613}
+.availability-notice.blocked{background:#fdecec;border-color:#e5a3a3;color:#8a2020}
+
+/* V6 - distribución final de la ficha de cliente */
+.client-data-grid{
+  display:grid;
+  grid-template-columns:
+    minmax(160px,1fr)
+    minmax(180px,1fr)
+    minmax(320px,1.8fr)
+    minmax(90px,.55fr);
+  gap:12px;
+  margin:18px 0;
+}
+.client-data-grid strong{
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+
+/* V8 - Documentación de reserva */
+.documentos-reserva-panel{
+  border:2px solid #bfd0dc;
+  background:#fbfdff;
+}
+.documentos-resumen{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  margin-bottom:18px;
+}
+.documentos-resumen div{
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:#fff;
+}
+.documentos-resumen span,
+.documentos-resumen strong{
+  display:block;
+}
+.documentos-resumen span{
+  color:var(--muted);
+  font-size:11px;
+  margin-bottom:5px;
+}
+.documentos-actions,
+.documentos-fallback{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.share-help{
+  color:var(--muted);
+  font-size:13px;
+  margin:14px 0;
+}
+.documentos-fallback{
+  border-top:1px solid var(--border);
+  padding-top:14px;
+}
+.documentos-fallback small{
+  color:var(--muted);
+  flex:1 1 320px;
+}
+@media(max-width:760px){
+  .documentos-resumen{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .documentos-resumen{grid-template-columns:1fr}
+}
+
+/* V11 - Solicitudes WhatsApp */
+.whatsapp-summary{grid-template-columns:repeat(4,minmax(0,1fr))}
+.wa-filter-row{display:grid;grid-template-columns:220px minmax(280px,1fr);gap:16px;margin-bottom:18px}
+.wa-actions{display:flex;flex-wrap:wrap;gap:6px;min-width:250px}
+.btn-small{padding:7px 9px;font-size:12px}
+.btn-danger-soft{background:#fdeaea;color:#9b2c2c}
+table td small{display:block;color:var(--muted);margin-top:4px}
+.modal-overlay{position:fixed;inset:0;z-index:999;background:rgba(20,35,48,.48);display:grid;place-items:center;padding:20px}
+.modal-overlay.hidden{display:none}
+.modal-card{width:min(760px,96vw);max-height:88vh;background:#fff;border-radius:18px;overflow:hidden}
+.modal-header{display:flex;justify-content:space-between;gap:16px;padding:18px 20px;border-bottom:1px solid var(--border)}
+.modal-header h2{margin:0}.modal-close{width:38px;height:38px;border:0;border-radius:10px;font-size:24px;cursor:pointer}
+.wa-messages{max-height:65vh;overflow:auto;padding:18px;background:#f4f6f8}
+.wa-message{max-width:78%;padding:10px 12px;border-radius:12px;margin-bottom:10px}.wa-message.incoming{background:#fff;border:1px solid var(--border);margin-right:auto}.wa-message.outgoing{background:#dfeffc;margin-left:auto}
+.wa-message-meta{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:var(--muted);margin-bottom:4px}
+@media(max-width:760px){.wa-filter-row{grid-template-columns:1fr}.whatsapp-summary{grid-template-columns:1fr 1fr}}
+
+
+/* ============================================================
+   AMBIENTE DE PRUEBAS
+   ============================================================ */
+.test-environment-banner{
+  position:sticky;
+  top:0;
+  z-index:2000;
+  width:100%;
+  box-sizing:border-box;
+  text-align:center;
+  padding:9px 14px;
+  font-weight:800;
+  letter-spacing:.3px;
+  background:#fff3cd;
+  color:#664d03;
+  border-bottom:1px solid #ffecb5;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.login-body .test-environment-banner{
+  position:fixed;
+  top:0;
+  left:0;
+}
+.login-body .login-shell{
+  padding-top:48px;
+}

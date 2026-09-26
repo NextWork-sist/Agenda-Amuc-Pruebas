@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[PRUEBAS] Agenda AMUC - Reservas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+</head>
+<body>
+  <div class="test-environment-banner">🧪 AMBIENTE DE PRUEBAS — NO UTILIZAR PARA RESERVAS REALES</div>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><img src="../assets/logo-amuc.jpg" alt="Logo AMUC" class="sidebar-logo"><div><strong>Agenda AMUC</strong><span id="userRole">Usuario</span></div></div>
+    <nav class="nav-menu"><a href="dashboard.html">Inicio</a><a href="reservas.html" class="active">Reservas</a><a href="clientes.html">Clientes</a><a href="pagos.html">Cobros</a><a href="solicitudes-whatsapp.html">Solicitudes WhatsApp</a></nav>
+    <button id="logoutBtn" class="btn btn-ghost">Cerrar sesión</button>
+  </aside>
+  <main class="content">
+    <header class="topbar"><div><h1>Reservas</h1><p>Buscar, verificar o crear cliente antes de reservar.</p></div><button id="toggleFormBtn" class="btn btn-primary">Nueva reserva</button></header>
+
+    <section id="reservaFormPanel" class="panel hidden">
+      <div class="step-title"><span class="step-number">1</span><div><h2>Buscar cliente</h2><p>DNI, apellido o nombre.</p></div></div>
+      <div class="search-row">
+        <input type="text" id="clienteSearch" placeholder="Ej.: 25555555, Pérez o Juan Pérez">
+        <button id="buscarClienteBtn" type="button" class="btn btn-secondary">Buscar</button>
+        <button id="nuevoClienteBtn" type="button" class="btn btn-primary">Crear nuevo</button>
+      </div>
+      <div id="resultadosClientes" class="client-results"></div>
+      <div id="clienteSeleccionado" class="client-card hidden"></div>
+
+      <section id="nuevoClientePanel" class="billing-box hidden">
+        <h3>Nuevo cliente</h3>
+        <form id="nuevoClienteForm" class="form-grid">
+          <label>Nombre<input type="text" id="nc_nombre" required></label>
+          <label>Apellido<input type="text" id="nc_apellido"></label>
+          <label>DNI<input type="text" id="nc_dni" required></label>
+          <label>Teléfono<input type="text" id="nc_telefono"></label>
+          <label>Email<input type="email" id="nc_email"></label>
+          <label>Dirección<input type="text" id="nc_direccion"></label>
+          <label class="checkbox-line"><input type="checkbox" id="nc_afiliado"><span>Afiliado AMUC</span></label>
+          <label class="checkbox-line"><input type="checkbox" id="nc_requiere_factura"><span>Requiere factura</span></label>
+          <div id="nc_facturacion" class="full hidden">
+            <div class="form-grid">
+              <label>Razón Social<input type="text" id="nc_razon_social"></label>
+              <label>CUIT<input type="text" id="nc_cuit"></label>
+              <label>Dirección fiscal<input type="text" id="nc_direccion_fiscal"></label>
+              <label>Tipo de factura<select id="nc_tipo_factura"><option value="">Seleccionar</option><option value="B">Factura B</option><option value="C">Factura C</option></select></label>
+              <label class="full">Condición frente al IVA<select id="nc_condicion_iva"><option value="">Seleccionar</option><option value="Consumidor Final">Consumidor Final</option><option value="Exento">Exento</option><option value="Monotributo">Monotributo</option><option value="Responsable Inscripto">Responsable Inscripto</option></select></label>
+            </div>
+          </div>
+          <div class="full form-actions"><button class="btn btn-primary" type="submit">Guardar y seleccionar</button><span id="nuevoClienteMessage" class="form-message"></span></div>
+        </form>
+      </section>
+
+      <div id="reservaDatosPanel" class="hidden">
+        <div class="step-title"><span class="step-number">2</span><div><h2>Datos del evento</h2><p>Tarifa automática según condición del cliente.</p></div></div>
+        <form id="reservaForm" class="form-grid">
+          <input type="hidden" id="cliente_id">
+          <label>Fecha<input type="date" id="fecha" required></label>
+          <label>Tipo de evento<input type="text" id="tipo_evento"></label>
+          <label>Hora inicio<input type="time" id="hora_inicio" required></label>
+          <label>Hora fin<input type="time" id="hora_fin" required></label>
+          <label>Cantidad de personas<input type="number" id="cantidad_personas" min="0"></label>
+          <label>Estado<select id="estado"><option value="PRE_RESERVA">Pre-reserva</option><option value="CONFIRMADA">Confirmada</option><option value="CANCELADA">Cancelada</option><option value="REALIZADA">Realizada</option><option value="CERRADA">Cerrada</option></select></label>
+          <div class="full price-summary">
+            <div><span>Condición</span><strong id="condicionCliente">—</strong></div>
+            <div><span>Valor por hora</span><strong id="valorHora">$ 0</strong></div>
+            <div><span>Horas</span><strong id="cantidadHoras">0</strong></div>
+            <div><span>Total alquiler</span><strong id="totalAlquiler">$ 0</strong></div>
+          </div>
+          <div id="availabilityNotice" class="full availability-notice neutral">
+            Seleccioná fecha y horario para verificar la disponibilidad del salón.
+          </div>
+          <label class="full">Observaciones<textarea id="observaciones" rows="3"></textarea></label>
+          <div class="full form-actions"><button class="btn btn-primary" type="submit">Guardar reserva</button><span id="reservaMessage" class="form-message"></span></div>
+        </form>
+      </div>
+    </section>
+
+
+    <section id="documentosReservaPanel" class="panel documentos-reserva-panel hidden">
+      <div class="panel-header">
+        <div>
+          <h2>Documentación de la reserva</h2>
+          <p>La reserva fue registrada. Podés generar y compartir la ficha completada junto con el reglamento.</p>
+        </div>
+      </div>
+
+      <div id="documentosReservaResumen" class="documentos-resumen"></div>
+
+      <div class="documentos-actions">
+        <button type="button" id="compartirArchivosBtn" class="btn btn-primary">
+          Compartir archivos
+        </button>
+        <button type="button" id="descargarFichaBtn" class="btn btn-secondary">
+          Descargar ficha
+        </button>
+        <button type="button" id="descargarReglamentoBtn" class="btn btn-secondary">
+          Descargar reglamento
+        </button>
+      </div>
+
+      <p class="share-help">
+        En celulares compatibles, <strong>Compartir archivos</strong> abre el menú del teléfono
+        para elegir WhatsApp, correo electrónico u otra aplicación y adjunta ambos PDF.
+      </p>
+
+      <div class="documentos-fallback">
+        <button type="button" id="whatsappMensajeBtn" class="btn btn-secondary">WhatsApp</button>
+        <button type="button" id="correoMensajeBtn" class="btn btn-secondary">Correo electrónico</button>
+        <small>Estas dos opciones preparan el mensaje. Si el navegador no admite compartir archivos, descargá los PDF y adjuntalos al mensaje.</small>
+      </div>
+    </section>
+
+    <section class="panel"><div class="panel-header"><h2>Reservas registradas</h2></div><div id="reservasTable" class="table-wrap"><p class="muted">Cargando...</p></div></section>
+  </main>
+</div>
+<script src="../js/supabase.js"></script><script src="../js/session.js"></script><script src="../js/documentos.js"></script><script src="../js/reservas.js"></script>
+</body>
+</html>

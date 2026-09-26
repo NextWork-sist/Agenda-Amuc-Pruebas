@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[PRUEBAS] Agenda AMUC - Cobros</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="test-environment-banner">🧪 AMBIENTE DE PRUEBAS — NO UTILIZAR PARA RESERVAS REALES</div>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><img src="../assets/logo-amuc.jpg" alt="Logo AMUC" class="sidebar-logo"><div><strong>Agenda AMUC</strong><span id="userRole">Usuario</span></div></div>
+    <nav class="nav-menu"><a href="dashboard.html">Inicio</a><a href="reservas.html">Reservas</a><a href="clientes.html">Clientes</a><a href="pagos.html" class="active">Cobros</a><a href="solicitudes-whatsapp.html">Solicitudes WhatsApp</a></nav>
+    <button id="logoutBtn" class="btn btn-ghost">Cerrar sesión</button>
+  </aside>
+  <main class="content">
+    <header class="topbar"><div><h1>Cobros</h1><p>Señas, pagos parciales y cancelación de saldos.</p></div><button id="toggleFormBtn" class="btn btn-primary">Registrar cobro</button></header>
+
+    <section id="pagoFormPanel" class="panel hidden">
+      <form id="pagoForm" class="form-grid">
+        <label class="full">Reserva pendiente de pago
+          <select id="reserva_id" required><option value="">Seleccionar reserva</option></select>
+          <small class="field-help">Las reservas totalmente abonadas dejan de aparecer automáticamente.</small>
+        </label>
+
+        <div id="reservaResumen" class="full payment-summary hidden"></div>
+
+        <label>Concepto
+          <select id="concepto">
+            <option value="SENA">Seña (50%)</option>
+            <option value="SALDO_TOTAL">Pago total / saldo</option>
+            <option value="PAGO_PARCIAL">Pago parcial</option>
+            <option value="OTRO">Otro</option>
+          </select>
+        </label>
+        <label>Medio de pago
+          <select id="medio_pago"><option>Efectivo</option><option>Transferencia</option><option>Débito</option><option>Crédito</option><option>Mercado Pago</option><option>Otro</option></select>
+        </label>
+        <label>Importe
+          <input type="number" id="importe" min="0" step="0.01" required>
+          <small id="importeHelp" class="field-help"></small>
+        </label>
+        <label>Fecha y hora<input type="datetime-local" id="fecha"></label>
+        <label class="full">Observaciones<textarea id="observaciones" rows="3"></textarea></label>
+        <div class="full form-actions"><button class="btn btn-primary" type="submit">Guardar cobro</button><span id="pagoMessage" class="form-message"></span></div>
+      </form>
+    </section>
+
+    <section class="panel"><div class="panel-header"><h2>Movimientos registrados</h2></div><div id="pagosTable" class="table-wrap"><p class="muted">Cargando...</p></div></section>
+  </main>
+</div>
+<script src="../js/supabase.js"></script><script src="../js/session.js"></script><script src="../js/pagos.js"></script>
+</body>
+</html>

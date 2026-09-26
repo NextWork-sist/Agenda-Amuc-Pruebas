@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[PRUEBAS] Agenda AMUC - Clientes</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="test-environment-banner">🧪 AMBIENTE DE PRUEBAS — NO UTILIZAR PARA RESERVAS REALES</div>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><img src="../assets/logo-amuc.jpg" alt="Logo AMUC" class="sidebar-logo"><div><strong>Agenda AMUC</strong><span id="userRole">Usuario</span></div></div>
+    <nav class="nav-menu">
+      <a href="dashboard.html">Inicio</a><a href="reservas.html">Reservas</a><a href="clientes.html" class="active">Clientes</a><a href="pagos.html">Cobros</a><a href="solicitudes-whatsapp.html">Solicitudes WhatsApp</a>
+    </nav>
+    <button id="logoutBtn" class="btn btn-ghost">Cerrar sesión</button>
+  </aside>
+  <main class="content">
+    <header class="topbar"><div><h1>Clientes</h1><p>Administración general de clientes.</p></div><button id="toggleFormBtn" class="btn btn-primary">Nuevo cliente</button></header>
+    <section id="clienteFormPanel" class="panel hidden">
+      <form id="clienteForm" class="form-grid">
+        <label>Nombre<input type="text" id="nombre" required></label>
+        <label>Apellido<input type="text" id="apellido"></label>
+        <label>DNI<input type="text" id="dni" required></label>
+        <label>Teléfono<input type="text" id="telefono"></label>
+        <label>Email<input type="email" id="email"></label>
+        <label>Dirección<input type="text" id="direccion"></label>
+        <label class="checkbox-line"><input type="checkbox" id="afiliado"><span>Afiliado AMUC</span></label>
+        <label class="checkbox-line"><input type="checkbox" id="requiere_factura"><span>Requiere factura</span></label>
+        <div id="facturacionFields" class="full billing-box hidden">
+          <div class="form-grid">
+            <label>Razón Social<input type="text" id="razon_social"></label>
+            <label>CUIT<input type="text" id="cuit"></label>
+            <label>Dirección fiscal<input type="text" id="direccion_fiscal"></label>
+            <label>Tipo de factura
+              <select id="tipo_factura"><option value="">Seleccionar</option><option value="B">Factura B</option><option value="C">Factura C</option></select>
+            </label>
+            <label class="full">Condición frente al IVA
+              <select id="condicion_iva"><option value="">Seleccionar</option><option value="Consumidor Final">Consumidor Final</option><option value="Exento">Exento</option><option value="Monotributo">Monotributo</option><option value="Responsable Inscripto">Responsable Inscripto</option></select>
+            </label>
+          </div>
+        </div>
+        <label class="full">Observaciones<textarea id="observaciones" rows="3"></textarea></label>
+        <div class="full form-actions"><button class="btn btn-primary" type="submit">Guardar cliente</button><span id="clienteMessage" class="form-message"></span></div>
+      </form>
+    </section>
+    <section class="panel">
+      <div class="panel-header"><h2>Clientes registrados</h2></div>
+      <div id="clientesTable" class="table-wrap"><p class="muted">Cargando...</p></div>
+    </section>
+  </main>
+</div>
+<script src="../js/supabase.js"></script><script src="../js/session.js"></script><script src="../js/clientes.js"></script>
+</body>
+</html>

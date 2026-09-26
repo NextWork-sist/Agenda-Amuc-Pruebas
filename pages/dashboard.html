@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[PRUEBAS] Agenda AMUC - Dashboard</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="test-environment-banner">🧪 AMBIENTE DE PRUEBAS — NO UTILIZAR PARA RESERVAS REALES</div>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><img src="../assets/logo-amuc.jpg" alt="Logo AMUC" class="sidebar-logo"><div><strong>Agenda AMUC</strong><span id="userRole">Usuario</span></div></div>
+    <nav class="nav-menu">
+      <a href="dashboard.html" class="active">Inicio</a>
+      <a href="reservas.html">Reservas</a>
+      <a href="clientes.html">Clientes</a>
+      <a href="pagos.html">Cobros</a><a href="solicitudes-whatsapp.html">Solicitudes WhatsApp</a>
+    </nav>
+    <button id="logoutBtn" class="btn btn-ghost">Cerrar sesión</button>
+  </aside>
+  <main class="content">
+    <header class="topbar dashboard-header"><div><h1>Agenda AMUC</h1><p id="welcomeText">Cargando...</p></div><img src="../assets/logo-amuc.jpg" alt="Logo AMUC" class="header-logo"></header>
+    <section class="stats-grid">
+      <article class="stat-card"><span>Reservas</span><strong id="statReservas">—</strong><small>Total registradas</small></article>
+      <article class="stat-card"><span>Clientes</span><strong id="statClientes">—</strong><small>Clientes registrados</small></article>
+      <article class="stat-card"><span>Total reservado</span><strong id="statTotalReservado">$ 0</strong><small>Valor de eventos</small></article>
+      <article class="stat-card"><span>Total cobrado</span><strong id="statCobrado">$ 0</strong><small>Pagos registrados</small></article><article class="stat-card"><span>WhatsApp pendientes</span><strong id="statWhatsappPendientes">—</strong><small>Solicitudes por atender</small></article>
+    </section>
+
+    <section id="paymentAlertsPanel" class="panel alert-panel hidden">
+      <div class="panel-header">
+        <div><h2>⚠ Alertas de pago</h2><p>Eventos dentro de los próximos 3 días que aún tienen saldo pendiente.</p></div>
+      </div>
+      <div id="paymentAlerts"></div>
+    </section>
+
+    <section class="panel calendar-panel">
+      <div class="calendar-toolbar">
+        <button id="prevMonthBtn" class="calendar-nav" aria-label="Mes anterior">‹</button>
+        <div class="calendar-title-wrap"><h2 id="calendarTitle">Calendario</h2><p>Reservas registradas por día.</p></div>
+        <button id="nextMonthBtn" class="calendar-nav" aria-label="Mes siguiente">›</button>
+      </div>
+      <div class="calendar-weekdays"><div>DOM.</div><div>LUN.</div><div>MAR.</div><div>MIÉ.</div><div>JUE.</div><div>VIE.</div><div>SÁB.</div></div>
+      <div id="calendarGrid" class="calendar-grid"></div>
+    </section>
+    <section class="panel">
+      <div class="panel-header"><div><h2>Próximas reservas</h2><p>Próximos eventos confirmados o en pre-reserva.</p></div></div>
+      <div id="proximasReservas" class="table-wrap"><p class="muted">Cargando...</p></div>
+    </section>
+  </main>
+</div>
+<script src="../js/supabase.js"></script>
+<script src="../js/session.js"></script>
+<script src="../js/dashboard.js"></script>
+</body>
+</html>
